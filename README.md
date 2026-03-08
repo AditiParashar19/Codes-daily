@@ -1,2 +1,2 @@
 # Codes-daily
-- This repository contains some DSA problems and data analytics code
+- This repository contains some DSA problems and data analytics codes
