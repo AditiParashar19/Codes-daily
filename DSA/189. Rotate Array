@@ -1,0 +1,26 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        //Reversal Algorithm
+        int left=0,right=nums.size()-1;
+        while(left<right){
+            swap(nums[left],nums[right]);
+            left++;
+            right--;
+        }
+        if(nums.size()<k)
+                k=k%nums.size();
+        left=0;
+        int m = k-1;
+        while(left<m){
+            swap(nums[left],nums[m]);
+            left++;
+            m--;
+        }
+        int li=k;
+        int r = nums.size()-1;
+        while(li<r){
+            swap(nums[li++],nums[r--]);
+        }
+    }
+};
