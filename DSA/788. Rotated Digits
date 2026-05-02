@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int rotatedDigits(int n) {
+        int c = 0;
+        for(int i=2;i<=n;i++){
+            int num = i;
+            int rev =0;
+            bool valid = true;
+            bool changed = false;
+            while(num){
+                int rem = num%10;
+                rev = rev*10+rem;
+                num = num/10;
+                if(rem==3 || rem ==4 || rem==7){
+                    valid = false;
+                    break;
+                }
+                if(rem==2 || rem==6 || rem==9 ||rem==5){
+                    changed = true;
+                }
+            }
+            if(valid && changed){
+                c++;
+            }
+        }
+        return c;
+    }
+};
