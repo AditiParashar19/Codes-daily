@@ -1,1 +1,1 @@
-This folder contains SQL solved Queries
+This folder contains SQL solved Queries on LeetCode.
