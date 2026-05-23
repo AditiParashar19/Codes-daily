@@ -13,12 +13,12 @@ public:
     }
 };
 
-Time Complexity
-O(n)
-Space Complexity
-O(1)
 
-Approach
+Time Complexity :  O(n)
+Space Complexity : O(1)
+
+Approach 
+
 1. Traverse the array.
 2. Count how many times the current element is greater than the next element.
 3. Use circular indexing: (i+1)%n
