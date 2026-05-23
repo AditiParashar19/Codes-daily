@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int c = 0;
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            if(nums[i]>nums[(i+1)%n])
+                c++;
+            if(c>1)
+                return false;
+        }
+    return c<=1;
+    }
+};
+
+Time Complexity
+O(n)
+Space Complexity
+O(1)
+
+Approach
+1. Traverse the array.
+2. Count how many times the current element is greater than the next element.
+3. Use circular indexing: (i+1)%n
+4. count ≤ 1 → array is sorted and rotated.
+We will count the break point in a circular manner 
