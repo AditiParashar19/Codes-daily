@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int minElement(vector<int>& nums) {
+        int min1 = INT_MAX;
+        for(auto ele : nums){
+            int sum = 0;
+            string n = to_string(ele);
+            for(auto s : n)
+                sum+=s-'0'; 
+            if(min1>sum)
+                min1 = sum;
+            
+        } 
+        return min1;
+    }
+};
