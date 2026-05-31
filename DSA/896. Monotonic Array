@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        bool inc = true;
+        bool dec = true;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]>nums[i-1])
+                dec = false;
+            
+            else if(nums[i]<nums[i-1])
+                inc = false;
+        }
+        return (inc==true)||(dec==true);   
+    }
+};
+
+Array can be increasing or decreasing 
+- increasing if arr[i]>arr[i-1]
+- decreasing if arr[i]<arr[i-1]
+- equal is true for both 
+- if any one of these (increasing/decreasing ) is true then array is monotonic array
+Time Complexity : O(n)
+Space Complexity : O(1)
