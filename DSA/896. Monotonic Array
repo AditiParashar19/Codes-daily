@@ -14,6 +14,8 @@ public:
     }
 };
 
+About the Solution
+
 Array can be increasing or decreasing 
 - increasing if arr[i]>arr[i-1]
 - decreasing if arr[i]<arr[i-1]
