@@ -1,0 +1,11 @@
+class Solution {
+public:
+    long long maxTotalValue(vector<int>& nums, int k) {
+        int min1 = INT_MAX,max1 = INT_MIN;
+        for(int x:nums){
+            min1 = min(x,min1);
+            max1 = max(x,max1);
+        }
+        return (long long)k*(max1-min1);
+    }
+};
