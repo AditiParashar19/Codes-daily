@@ -1,0 +1,25 @@
+class Solution {
+public:
+    long long sum_digits(long long n){
+        long long s= 0;
+        while(n!=0){
+            s+=(n%10);
+            n/=10;
+    }
+    return s;
+    }
+    int getLucky(string s, int k) {
+        long long n =0;
+        for(char ch : s){
+            int x = ch-'a'+1;
+            n += x / 10;  //tens digit
+            n += x % 10;  // ones digit
+        }
+        k--;
+        while(k!=0){
+            k--;
+            n = sum_digits(n);
+        }
+        return n; 
+    }
+};
