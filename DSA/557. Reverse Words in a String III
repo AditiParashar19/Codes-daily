@@ -1,0 +1,55 @@
+class Solution {
+public:
+    string palindrome(string ch){
+        int l=0;
+        int r = ch.size()-1;
+        while(l<r){
+            swap(ch[l],ch[r]);
+            l++;
+            r--;
+        }
+        return ch;
+    }
+    string reverseWords(string s) {
+        string ch;
+        string reverse ="";
+        stringstream ss(s);
+        bool first = true;
+        while(getline(ss,ch,' ')){
+            if(!first){
+                reverse+=" ";
+            }
+            reverse+=palindrome(ch);
+            first = false;
+        }
+        return reverse;
+    }
+};
+
+--------------------------------------------------------------------------------------------------------------------------------
+Time Complexity : O(n)
+Space Complexity : O(n)
+--------------------------------------------------------------------------------------------------------------------------------
+2nd Method 
+================================================================================================================================
+class Solution {
+public:
+    string reverseWords(string s) {
+        int start = 0;
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            if (s[i] == ' ') {
+                reverse(s.begin() + start, s.begin() + i);
+                start = i + 1;
+            }
+        }
+        reverse(s.begin() + start, s.end());
+        return s;
+    }
+};
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+Time Complexity : O(n)
+Space Complexity : O(1)
+--------------------------------------------------------------------------------------------------------------------------------
