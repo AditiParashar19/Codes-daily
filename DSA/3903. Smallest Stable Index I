@@ -1,0 +1,45 @@
+Method 1 
+
+class Solution {
+public:
+    int firstStableIndex(vector<int>& nums, int k) {
+        int n = nums.size();
+        int max1 = INT_MIN;
+        int min1 = INT_MAX;
+        for(int i=0;i<n;i++){
+            max1 = max(max1,nums[i]);
+            min1 = *min_element(nums.begin()+i,nums.end());
+            if((max1-min1)<=k)
+                return i;
+        }
+        return -1;
+    }
+};
+
+Time Complexity : O(n^2)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Method 2
+
+class Solution {
+public:
+    int firstStableIndex(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int>maxn(n),minn(n);
+        maxn[0] = nums[0];
+        minn[n-1] = nums[n-1];
+        for(int i=1;i<n;i++){
+            maxn[i] = max(maxn[i-1],nums[i]);
+        }
+        for(int i=n-2;i>=0;i--){
+            minn[i] = min(minn[i+1],nums[i]);
+        }
+        for(int i=0;i<n;i++){
+            if(maxn[i]-minn[i]<=k)
+                return i;
+        }
+        return -1;
+    }
+
+    Idea : prefix Sum and suffix sum
+    Time Complexity : O(n)
+};
